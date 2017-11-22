@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	header{
+		width: 100%;
+		height: 310px;
+		background: #f44336;
+	}
+	.head{
+		width: 90%;
+		height: 310px;
+		margin: 0 auto;
+	}
+	.l,.r{
+		float: left;
+		width: 10%;
+		height: 155px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.c{
+		float: left;
+		width: 80%;
+		height: 155px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 40px;
+		color: white;
+	}
+	nav{
+		width: 100%;
+		height: 155px;
+	}
+	nav>ul>li{
+		width: 33.33%;
+		height: 155px;
+		float: left;
+		font-size: 40px;
+		color: white;;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		.wrap{
+			overflow: hidden;
+			width: 90%;
+			height: 264px;
+			margin: 0 auto;
+			border-bottom: 1px solid #ccc;
+		}
+		.top{
+			float: left;
+			width: 60%;
+			height: 264px;
+			padding-top: 60px;
+			box-sizing: border-box;
+			padding-left: 20px;
+		}
+		.left,.bottom{
+			float: left;
+			width: 20%;
+			height: 264px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.top .p1{
+			font-size: 40px;	
+		}
+		.top .p2{
+			font-size: 30px;
+			padding-left: 2%;
+		}
+		.top .sp1{
+			font-size: 40px;
+			color: red;
+		}
+
+	</style>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+<header>
+	<div class="head">
+		<div class="l">
+			<img src="images/icon.png">
+		</div>
+		<div class="c">
+			Notifications
+		</div>
+		<div class="r">
+			<img src="images/dian.png">
+		</div>
+		<nav>
+		<ul>
+			<li>Friends</li>
+			<li>Following</li>
+			<li>Staff</li>
+		</ul>
+	</nav>
+	</div>
+</header>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img1.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon1.png">
+	</div>
+</div>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img2.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon2.png">
+	</div>
+</div>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img3.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon3.png">
+	</div>
+</div>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img4.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon4.png">
+	</div>
+</div>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img5.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon5.png">
+	</div>
+</div>
+<div class="wrap">
+	<div class="left">
+		<img src="images/img6.jpg">
+	</div>
+	<div class="top">
+		<span class="sp1"></span>
+		<span class="p1"></span>
+		<p class="p2"></p>
+	</div>
+	<div class="bottom">
+		<img src="images/icon6.jpg">
+	</div>
+</div>
+<script type="text/javascript">
+	var op1=document.querySelectorAll(".p1"),
+		osp1=document.querySelectorAll(".sp1"),
+		op2=document.querySelectorAll(".p2");
+	ajax({
+		type:"GET",
+		url:"json.txt",
+		success:function(data){
+			console.log(data)
+			var json=JSON.parse(data);
+			for(var i=0;i<json.length;i++){
+				op1[i].innerHTML=json[i].title;
+				osp1[i].innerHTML=json[i].msg;
+				op2[i].innerHTML=json[i].time;
+			}
+		}
+		
+	})
+</script>
+</body>
+</html>
